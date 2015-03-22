@@ -4,11 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
+var home = require('./routes/home');
+var login = require('./routes/login')
+var register = require('./routes/register')
 var users = require('./routes/users');
+var postmark = require("postmark");
 
 var app = express();
+
+module.exports = app;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,8 +27,16 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 app.use('/users', users);
+
+// General
+app.get('/', home.home);
+
+// Login
+app.get('/login', login.login);
+
+// Register
+app.get('/register', register.register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
