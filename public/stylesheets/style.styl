@@ -1,16 +1,40 @@
 $blue = #4A90E2
+$bg = #fafafa
+$green = #9DDA5B
+$red = #F75D5D
+
+*
+    box-sizing: border-box
 
 body
-    padding: 100px
     font-size: 14px
     line-height: 1.5
-    font-family: 'Helvetica Neue', sans-serif
-    background: $blue
-    color: #fff
+    font-family: 'Roboto', sans-serif
+    background: $bg
+    color: #555
 
 a
     color: #fff
     text-decoration: underline
+
+.header
+    height: 50px
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $blue
+
+.sub-header
+    background-color: darken($blue,5)
+    padding: 12px
+
+.badge
+    color: #fff
+    font-weight: bold
+    font-size: 24px
+    letter-spacing: -1px
+    span
+        color: rgba(255,255,255,0.5)
 
 .btn
     display: inline-block
@@ -21,8 +45,17 @@ a
     text-decoration: none
     background: transparent
     border: 1px solid #fff
-    font-size: 18px
+    font-size: 14px
     padding: 0 48px
+
+.btn--primary
+    background-color: #fff
+    color: #333
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5)
+
+.btn--block
+    display: block
+
 
 .logo
     font-family: 'Montserrat'
@@ -49,3 +82,82 @@ a
     .btn
         margin-left: 24px
     margin-left: -24px
+
+strong
+    font-weight: 500
+
+.container
+    padding: 0 12px
+    margin: 0 auto
+    max-width: 500px
+
+.main
+    padding-top: 24px
+
+.item
+    background-color: #fff
+    border-radius: 2px
+    margin-bottom: 12px
+    font-size: 12px
+
+.item__body
+    padding: 24px 12px
+    border: 1px solid #ddd
+    border-bottom: 0
+
+.item__wrap
+    padding: 12px
+    background-color: #f7f7f7
+
+.item__title
+    font-weight: 200
+    margin-bottom: 12px
+    font-size: 16px
+
+.bar
+    height: 34px
+    position: relative
+
+.bar__chunk
+    position: absolute
+    left: 0
+    right: 0
+    height: 100%
+    background-color: $green
+    border-bottom: 2px solid rgba(0,0,0,0.25)
+    border-top: 1px solid rgba(0,0,0,0.05)
+
+.bar__count
+    position: absolute
+    top: -1px
+    left: 12px
+    font-size: 10px
+    text-transform: uppercase
+    color: #fff
+    font-weight: 500
+    display: block
+    height: 34px
+    line-height: 34px
+    font-weight: bold
+
+.bar__chunk:nth-child(2)
+    left: 33.333333333%
+    background-color: $red
+
+.bar__chunk:last-child
+    left: 66.666666666%
+    background-color: #EFEFEF
+    border-right: 1px solid #ccc
+    .bar__count
+        right: 12px
+        text-align: right
+        left: auto
+        color: #666
+
+.tiny-title
+    font-size: 10px
+    font-weight: bold
+    text-transform: uppercase
+    margin-bottom: 12px
+    color: #555
+    margin-left: 12px

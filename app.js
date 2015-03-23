@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var home = require('./routes/home');
 var login = require('./routes/login')
+var admin = require('./routes/admin')
 var register = require('./routes/register')
 var users = require('./routes/users');
 var postmark = require("postmark");
@@ -37,6 +38,9 @@ app.get('/login', login.login);
 
 // Register
 app.get('/register', register.register);
+
+// Admin
+app.get('/admin', admin.admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
