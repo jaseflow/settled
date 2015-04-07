@@ -8,7 +8,6 @@ var home = require('./routes/home');
 var login = require('./routes/login')
 var admin = require('./routes/admin')
 var register = require('./routes/register')
-var users = require('./routes/users');
 var postmark = require("postmark");
 
 var app = express();
@@ -28,8 +27,6 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', users);
-
 // General
 app.get('/', home.home);
 
@@ -39,8 +36,9 @@ app.get('/login', login.login);
 // Register
 app.get('/register', register.register);
 
-// Admin
-app.get('/admin', admin.admin);
+// Admin 
+app.get('/admin', admin.get);
+app.post('/admin', admin.post);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -72,6 +70,10 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+// Include sendmail service on run
+require('./services/sendmail.js');
 
 
 module.exports = app;

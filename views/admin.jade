@@ -1,37 +1,49 @@
 extends layout
 
 block content
-    header.header
-        .badge settle
-            span it
-    .sub-header
-       a.btn.btn--primary.btn--block Ask a question 
     .main
         .container
-            h4.tiny-title Ongoing settlements
-            .item
-                .item__body
-                    h4.item__title Does the owner of lot 5 have permission to install the signage as per pic attached? 
-                    p
-                        strong Sent to 8 clients | Expires in 24 days
-                .bar
-                    .bar__chunk
-                        span.bar__count Yes (3)
-                    .bar__chunk
-                        span.bar__count No (3)
-                    .bar__chunk
-                        span.bar__count TBD (3)
-            .item
-                .item__body
-                    h4.item__title Does the owner of lot 5 have permission to install the signage as per pic attached? 
-                    p
-                        strong Sent to 8 clients | Expires in 24 days
-                .bar
-                    .bar__chunk
-                        span.bar__count Yes (3)
-                    .bar__chunk
-                        span.bar__count No (3)
-                    .bar__chunk
-                        span.bar__count TBD (3)
-    .footer
-        a.btn.btn--block(href="#") Create question
+            form(method="post").questions
+                .card
+                    .card__hd
+                        ul.card__nav
+                            li
+                                a(href="#details").details.active.js-toggle-slide 1. Details
+                            li
+                                a(href="#files").files.js-toggle-slide 2. Options
+                            li
+                                a(href="#review").review.js-toggle-slide 3. Review
+                    .card__body
+                        .slides
+                            .slide.active#details
+                                .card__slide
+                                    .form__group
+                                        label.flat What is your question?
+                                        small.form__helper Provide a short description of what you are asking the recipients.
+                                        textarea(name="description" placeholder="eg. Can we install a roller door in Property X?").flat
+                                    .form__group
+                                        label.flat Who are the recipients?
+                                        small.form__helper Seperate multiple emails with a comma.
+                                        input(type="email", name="toEmail" placeholder="john@company.com").flat
+                                    a.btn.btn--primary.btn--block.js-toggle-slide(href="#files") Next step: Attach files
+                            .slide#files
+                                .card__slide
+                                    div
+                                        .card__option
+                                            label Option A
+                                            .form__group
+                                                textarea(name="comments1" placeholder="Provide an answer for option A")
+                                                input(type="file", name="file1", id="file1").flat
+                                        .card__option
+                                            label Option B
+                                            .form__group
+                                                textarea(name="comments2" placeholder="Provide an answer for option B")
+                                                input(type="file", name="file2", id="file2").flat
+                                    a.btn.btn--primary.btn--block.js-toggle-slide(href="#review") Next step: Review
+                            .slide#review
+                                .card__slide
+                                    .form__group
+                                        label.flat What is your email?
+                                        small.form__helper All notifications will be sent to this email.
+                                        input(type="email", name="fromEmail").flat
+                                    input(type="submit",value="Send").btn.btn--block.btn--primary

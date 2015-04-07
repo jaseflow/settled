@@ -1,0 +1,19 @@
+{
+  "name": "settled",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jsncbt/settled",
+  "authors": [
+    "Jason Corbett <jason.corbett@wotifgroup.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
