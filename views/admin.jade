@@ -18,28 +18,35 @@ block content
                             .slide.active#details
                                 .card__slide
                                     .form__group
-                                        label.flat What is your question?
-                                        small.form__helper Provide a short description of what you are asking the recipients.
-                                        textarea(name="description" placeholder="eg. Can we install a roller door in Property X?").flat
-                                    .form__group
                                         label.flat Who are the recipients?
                                         small.form__helper Seperate multiple emails with a comma.
                                         input(type="email", name="toEmail" placeholder="john@company.com").flat
+                                    .form__group
+                                        label.flat What is your question?
+                                        small.form__helper Provide a short description of what you are asking the recipients.
+                                        textarea(name="description" placeholder="eg. Can we install a roller door in Property X?").flat
                                     a.btn.btn--primary.btn--block.js-toggle-slide(href="#files") Next step: Attach files
                             .slide#files
                                 .card__slide
                                     div
                                         .card__option
-                                            label Option A
+                                            label.flat Option A
+                                            small.form__helper Provide an attachment for more clarity
                                             .form__group
                                                 textarea(name="comments1" placeholder="Provide an answer for option A")
-                                                input(type="file", name="file1", id="file1").flat
+                                                input(type="file", name="file1", id="file1").flat 
+                                                input(type="hidden", id="fld_redirect")
+                                                input(type="hidden", id="fld_AWSAccessKeyId")
+                                                input(type="hidden", id="fld_Policy")
+                                                input(type="hidden", id="fld_Signature")
                                         .card__option
-                                            label Option B
+                                            label.flat Option B
+                                            small.form__helper Provide an attachment for more clarity
                                             .form__group
                                                 textarea(name="comments2" placeholder="Provide an answer for option B")
                                                 input(type="file", name="file2", id="file2").flat
-                                    a.btn.btn--primary.btn--block.js-toggle-slide(href="#review") Next step: Review
+
+                                    a.btn.btn--primary.btn--block.js-toggle-slide(href="#review",id="upload") Next step: Upload and Review
                             .slide#review
                                 .card__slide
                                     .form__group
@@ -47,3 +54,4 @@ block content
                                         small.form__helper All notifications will be sent to this email.
                                         input(type="email", name="fromEmail").flat
                                     input(type="submit",value="Send").btn.btn--block.btn--primary
+    script(src="javascripts/upload.js")

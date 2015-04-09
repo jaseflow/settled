@@ -260,8 +260,23 @@ strong {
   margin-top: 12px;
   margin-bottom: 12px;
 }
+.confirm {
+  color: #fff;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+.confirm h1 {
+  font-size: 36px;
+}
+.confirm p {
+  font-weight: 300;
+  margin-bottom: 24px;
+}
 @media (min-width: 768px) {
   .questions {
+    margin-top: 100px;
+  }
+  .confirm {
     margin-top: 100px;
   }
 }

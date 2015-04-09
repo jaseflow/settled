@@ -12,5 +12,6 @@ exports.post = function(req, res) {
         from: req.body.fromEmail,
         text: "Choose between " + req.body.comments1 + " and " + req.body.comments2,
     }
-    sendmail.send(email)
+    sendmail.send(email);
+    res.render('confirm', {title: 'Successfully sent your message'})
 }
